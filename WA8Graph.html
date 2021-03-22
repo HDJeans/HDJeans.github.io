@@ -1,0 +1,47 @@
+
+   <center>
+   <h1> For this assignment I used a filtering for Citations. I seperated the preccincts by who got citations and who did not recieve citations. I then aggregated this data by adding up who got citations and who did not get citations. Changed</h1>
+
+
+
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['Citation not Issued', 'Citation Issued'],
+        datasets: [{
+            label: 'Fake data',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [5300,1065],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+    scales: {
+            yAxes: [{
+                display: true,
+                stacked: true,
+                ticks: {
+                    min: 0, // minimum value
+                    max: 10000 // maximum value
+                }
+            }]
+        }
+    }
+});
+
+
+</script>
