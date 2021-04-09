@@ -1,0 +1,168 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Reveal.JS Template for Week 13</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/moon.min.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+		<script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Weekly Assignment 11</h3>
+					<p>Hayden Jeans</p>
+				</section>
+
+				<section>
+					<p>I am from the beautiful city of Seattle</p>
+					<p>It rains a lot in Seattle</p>
+				</section>
+
+				<section>
+					<div id="vis"></div>
+	<script type="text/javascript">
+		var spec = {
+  
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/vega/vega/master/docs/data/seattle-weather.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "timeUnit": "month",
+      "field": "date",
+      "type": "ordinal",
+      "title": "Month of the year"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "weather",
+      "type": "nominal",
+      "scale": {
+        "domain": ["sun", "fog", "drizzle", "rain", "snow"],
+        "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]
+      },
+      "title": "Weather type"
+    }
+  }
+}  /* JSON dump of your chart's spec */
+		var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+		vegaEmbed("#vis", spec, opt);
+	</script>
+				</section>
+				<section>
+					<p>As you can see from the graph it rains a lot in Seattle</p>
+					
+				</section>
+				<section>
+						
+					
+						
+						
+						<p>This is how you implement data into your graph</p>
+						<pre><code data-trim ><script type="text/template">
+						
+						"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/vega/vega/master/docs/data/seattle-weather.csv"},
+  "mark": "bar",
+					</script></code></pre>
+						
+				</section>
+
+				<section>
+					<div id="vis1"></div>
+	<script type="text/javascript">
+		var spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A population pyramid for the US in 2000, created using stack. See https://vega.github.io/vega-lite/examples/concat_population_pyramid.html for a variant of this created using concat.",
+  "data": { "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/population.json"},
+  "transform": [
+    {"filter": "datum.year == 2000"},
+    {"calculate": "datum.sex == 2 ? 'Female' : 'Male'", "as": "gender"},
+    {"calculate": "datum.sex == 2 ? -datum.people : datum.people", "as": "signed_people"}
+  ],
+  "width": 300,
+  "height": 200,
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "age",
+      "axis": null, "sort": "descending"
+    },
+    "x": {
+      "aggregate": "sum", "field": "signed_people",
+      "title": "population",
+      "axis": {"format": "s"}
+    },
+    "color": {
+      "field": "gender",
+      "scale": {"range": ["#675193", "#ca8861"]},
+      "legend": {"orient": "top", "title": null}
+    }
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}
+/* JSON dump of your chart's spec */
+		var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+		vegaEmbed("#vis1", spec, opt);
+	</script>
+				</section>
+
+
+				<section>
+					<p>This is a great graph showing the population of the world</p>
+					<p>You can see that it is seperated between gender</p>
+				</section>
+
+				<section>
+						
+					
+						
+						
+						<p>Make sure to change your id name for your second graph</p>
+						<pre><code data-trim ><script type="text/template">
+						<div id="vis1"></div>
+						vegaEmbed("#vis1", spec, opt);
+						
+					</script></code></pre>
+						
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+	
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				
+				hash: true,
+				slideNumber: 'h/v',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight ]
+			});
+
+			
+		</script>
+	</body>
+</html>
