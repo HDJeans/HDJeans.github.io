@@ -33,32 +33,24 @@
 					<div id="vis"></div>
 	<script type="text/javascript">
 		var spec = {
-  
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "https://raw.githubusercontent.com/vega/vega/master/docs/data/seattle-weather.csv"},
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "timeUnit": "month",
-      "field": "date",
-      "type": "ordinal",
-      "title": "Month of the year"
-    },
-    "y": {
-      "aggregate": "count",
-      "type": "quantitative"
-    },
-    "color": {
-      "field": "weather",
-      "type": "nominal",
-      "scale": {
-        "domain": ["sun", "fog", "drizzle", "rain", "snow"],
-        "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]
-      },
-      "title": "Weather type"
-    }
-  }
-}  /* JSON dump of your chart's spec */
+"width": 600,
+"height": 200,
+"data": {
+	"url": "data/DOGE-USD.csv"
+},
+"mark": "bar",
+"encoding": {
+	"x": {
+		"field": "state",
+		"type":"nominal",
+		"sort":"-y"
+	},
+	"y": {
+		"field": "population",
+		"type":"quantitative"
+	}
+}
+}; /* JSON dump of your chart's spec */
 		var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
 		vegaEmbed("#vis", spec, opt);
 	</script>
