@@ -143,7 +143,40 @@
 					
 					<section>
 						<h2>In-class Exercise 3</h2>
-						<p>Your visualization goes here!</p>
+						<div id="vis-point"></div>
+						<script type="text/javascript">
+						var spec = {
+							"width": 400,
+							"height": 300,
+							"data": {
+								"url": "https://vega.github.io/vega-datasets/data/sp500-2000.csv"
+							},
+							"mark": {
+								"type": "point"
+								"size": 10,
+							},
+							"encoding": {
+								"x": {
+									"field": "volume",
+									"type": "quantitative"
+								},
+								"y": {
+									"field": "close",
+									"type": "quantitative"
+								},
+								"color": {
+									"field": "date",
+									"timeUnit": "year",
+									"type": "ordinal",
+									"scale": {
+										"scheme": "spectral"
+									}
+								}
+							}
+						};
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#vis-point", spec, opt);
+						</script>
 					</section>
 				</section>
 
